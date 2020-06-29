@@ -1,8 +1,8 @@
-{% extends "layout.html" %}
+{% extends "layout.njk" %}
 
 {% block head %}
 
-<title> Sobre - Estefani Klotz </title>
+<title> Sobre - {{about.name}} </title>
 
 {% endblock %}
 
@@ -10,18 +10,18 @@
 
 
     <div id="wrapper" class="links">
-        <img src="https://avatars3.githubusercontent.com/u/64774085?s=460&u=9a5e85efc1713eef9761b0e7fd9f8dccec789568&v=4" 
-        alt="Estefani Klotz">
-        <h1>Estefani Klotz</h1>
-        <h2>Aluna do curso da Rocketseat </h2>
-        <p> Sempre buscando aprimorar meus conhecimentos. </br>
-            Agora focada no curso da <a href="https://rocketseat.com.br" target="_blank"> Rocketseat. </a></p>
+        <img src="{{about.avatar_url}}" alt="Imagem de {{about.name}}">
+        <h1> {{about.name}} </h1>
+        <h2> {{about.role}} </h2>
+        <p> {{about.description}} </p>
     </div>
 
     <div id="links-footer" class="links">
-        <a href="https://github.com/esklotz/" target="_blank"> Github </a>
-        <a href="https://www.facebook.com/estefani.joana.3/" target="_blank"> Facebook </a>
-        <a href="https://www.linkedin.com/in/estefani-joana-borchardt-klotz-864877153/" target="_blank"> LinkedIn </a>
+
+        {% for link in about.links %}
+        <a href="{{link.url}}" target="_blank"> {{link.name}} </a>
+        {% endfor %}
+        
     </div>
 
     {% endblock %}
